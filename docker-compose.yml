@@ -1,7 +1,7 @@
 version: '3'
 services:
   wol:
-    image: janpluskal:go-rest-wol
+    image: janpluskal/go-rest-wol
     build: . 
     ports:
       - "8080:8080"

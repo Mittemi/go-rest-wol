@@ -32,6 +32,8 @@ __&lt;name of the computer&gt;__,__&lt;mac address of the computer&gt;__,__&lt;b
 
 
 ### Example
+
+computers.csv
 ```csv
 name,mac,ip
 Computer1,64-07-2D-BB-BB-BF,192.168.10.254:9
@@ -39,6 +41,20 @@ Computer2,2D-F2-3D-06-17-00,192.168.10.254:9
 Computer3,FF-B3-95-62-1C-DD,192.168.10.254:9
 ```
 
-Was a good exercise to learn golang
+docker-compose.yml
+```yml
+version: '3'
+services:
+  wol:
+    image: janpluskal/go-rest-wol
+    ports:
+      - "8080:8080"
+    environment:
+      - "WOLFILE=/config/computer.csv"
+    volumes:
+      - "./config:/config"
+```
 
-Thx https://github.com/sabhiram/go-wol for the WOL Code, sorry that i stole it from you, because i got no clue how i can inject it into my program :-(
+### Credits
+Full credits go to [daBONDi](https://github.com/daBONDi/go-rest-wol)
+
