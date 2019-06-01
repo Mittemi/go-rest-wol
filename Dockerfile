@@ -1,6 +1,6 @@
 
 # Build Stage
-FROM golang:alpine AS builder
+FROM arm32v7/golang:alpine AS builder
 
 # Install Dependecies
 RUN apk add git
@@ -21,7 +21,7 @@ COPY /pages/* ./pages/
 ADD VERSION .
 
 # Final Image Stage
-FROM alpine 
+FROM arm32v7/alpine 
 WORKDIR /go
 COPY --from=builder /build/ /go
 COPY /config /config 

@@ -46,13 +46,14 @@ docker-compose.yml
 version: '3'
 services:
   wol:
-    image: janpluskal/go-rest-wol
+    image: mitterm/go-rest-wol
     ports:
       - "8080:8080"
     environment:
       - "WOLFILE=/config/computer.csv"
     volumes:
       - "./config:/config"
+    network_mode: "host"
 ```
 
 ### Credits
